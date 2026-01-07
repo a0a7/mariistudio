@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maria's goose studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'roboto', sans-serif;
+            overflow: hidden;
+        }
+        
+        #counter {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 10;
+        }
+        
+        #end {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            padding: 60px 80px;
+            text-align: center;
+            visibility: hidden;
+            z-index: 20;
+        }
+        
+        #end h1 {
+            color: white;
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            text-transform: lowercase;
+        }
+        
+        #retry {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: lowercase;
+        }
+        
+        #retry:hover {
+            background: white;
+            color: black;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .control-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+        }
+
+        .control-btn:active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (min-width: 768px) {
+            .controls {
+                display: none;
+            }
+        }
+
+        #message {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        #message-text {
+            color: white;
+            font-size: 18px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+
+        /* Intro screen styles */
+        #intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #intro-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #intro-text {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            animation: slideIn 2s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #intro-text {
+                font-size: 32px;
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Intro Screen -->
+    <div id="intro-screen">
+        <div id="intro-text">welcome to the studio</div>
+    </div>
+
+    <div id="counter">0</div>
+    <div id="end">
+        <h1>game over</h1>
+        <button id="retry">try again</button>
+    </div>
+
+    <div id="message">
+        <div id="message-text">
+            a training studio for a special kiwi
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="control-row">
+            <button id="forward" class="control-btn">▲</button>
+        </div>
+        <div class="control-row">
+            <button id="left" class="control-btn">◄</button>
+            <button id="backward" class="control-btn">▼</button>
+            <button id="right" class="control-btn">►</button>
+        </div>
+    </div>
+
+    <script type="module" src="/src/index.js"></script>
+    <script>
+        // Intro animation sequence
+        setTimeout(() => {
+            const introScreen = document.getElementById('intro-screen');
+            introScreen.classList.add('fade-out');
+            
+            // Remove intro screen after fade completes
+            setTimeout(() => {
+                introScreen.style.display = 'none';
+            }, 1000);
+        }, 3000); // Start fade after 3 seconds
+    </script>
+</body>
+</html>

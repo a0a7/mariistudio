@@ -1,0 +1,20 @@
+{
+  "name": "threejs-crossy-road",
+  "version": "1.0.0",
+  "description": "A Crossy Road-style game built with Three.js",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["threejs", "game", "crossy-road"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

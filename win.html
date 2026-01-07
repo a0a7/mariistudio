@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>congratulations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'roboto', sans-serif;
+            background: #000;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+            padding: 40px;
+            max-width: 600px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 60px;
+            text-transform: lowercase;
+        }
+
+        .destination-text {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            line-height: 1.8;
+            color: white;
+            opacity: 0;
+            animation: fadeInText 1s ease-in forwards;
+            animation-delay: 1s;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .play-again {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: lowercase;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeInText 1s ease-in forwards;
+            animation-delay: 2s;
+        }
+
+        .play-again:hover {
+            background: white;
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+                letter-spacing: 4px;
+            }
+            .destination-text {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>congratulations</h2>
+        <br><br><br>
+        <p class="destination-text">where chuds scroll reels, your next destination is<br><span style="font-size: 28px">@umn_  _  _  _</span>
+        cadets at attention know where to look.</p><br><br>
+
+        <img class="destination-text" src="https://media.discordapp.net/attachments/477306986657087494/1458487470571127019/server-icon.png?ex=695fd1ce&is=695e804e&hm=359e822d949eb6c450f79155905108bcc0bc7ff3e9ff1f2136e2d9d48970f4e1&=&format=webp&quality=lossless">
+    </div>
+</body>
+</html>
