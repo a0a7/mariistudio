@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/png" href="/favicon.png">
     <title>maria's goose studio</title>
     <style>
@@ -231,6 +231,37 @@
                 introScreen.style.display = 'none';
             }, 1000);
         }, 3000); // Start fade after 3 seconds
+    </script>
+
+    <script>
+        // Prevent pinch-zoom on mobile and ctrl/cmd zoom on desktop
+        (function() {
+            // Disable multi-touch pinch
+            document.addEventListener('touchstart', function (e) {
+                if (e.touches && e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+
+            // iOS gesture events
+            document.addEventListener('gesturestart', function (e) {
+                e.preventDefault();
+            });
+
+            // Disable Ctrl/Cmd + +/- and Ctrl/Cmd + 0
+            window.addEventListener('keydown', function (e) {
+                if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
+                    e.preventDefault();
+                }
+            });
+
+            // Disable zoom via wheel + ctrl/cmd
+            window.addEventListener('wheel', function (e) {
+                if (e.ctrlKey || e.metaKey) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        })();
     </script>
 </body>
 </html>
